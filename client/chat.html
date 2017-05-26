@@ -1,12 +1,8 @@
 <template name="chat">
 <div class="container">
     <div class="row">
-    	{{#each chat}}
-			{{>chat}}
-    	{{/each}}
-    	
-
-        	<div class="col-md-5"> 
+    
+			<div class="col-md-5"> 
         		<div class="panel panel-primary">
                 	<div class="panel-heading">
                     	<span class="glyphicon glyphicon-comment"></span> Chat
@@ -16,7 +12,7 @@
                 	</div>
 			                <div class="panel-body">
 			                    <ul class="chat">
-			                        
+			                        {{#each chat}}
 			                        <li class="right clearfix">
 			                        <span class="chat-img pull-right">{{autor}}
 			                           
@@ -28,6 +24,7 @@
 			                                </p>
 			                            </div>
 			                        </li>
+			                        {{/each}}
 			                    </ul>
 			                </div>
 				                <form class="panel-footer">
@@ -41,6 +38,10 @@
 				                </form>
             	</div>
         	</div>
+    
+    	
+
+        	
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-Template.principal.onRendered(function ($) {
+/*Template.principal.onRendered(function ($) {
     // Add smooth scrolling to all links in navbar
     $(".navbar a,a.btn-appoint, .quick-info li a, .overlay-detail a").on('click', function(event) {
         event.preventDefault();
@@ -20,3 +20,4 @@ Template.principal.onRendered(function ($) {
     });
     
 });
+*/
