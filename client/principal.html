@@ -1,5 +1,6 @@
 <template name="principal">
 <div  id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+	
 	  	<!--banner-->
 	<section id="banner" class="banner">
 		<div class="bg-color">
@@ -151,6 +152,10 @@
 			</div>
 		</div>
 	</section>
+<div class="row">
+	{{>Template.dynamic template=banner}}
+	
+	</div>
 
 
 <!-- ingresar -->
