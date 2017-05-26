@@ -22,9 +22,9 @@
 				        <li class=""><a href="#contact">Contacto</a></li>
 				        <li class=""><a href="" data-toggle="modal" data-target="#registrar">Registro</a></li>
 				        {{#if currentUser}}
-				        	<li class=""><a href="#" data-toggle="modal" data-target="#ingresar">Login</a></li>
+				        	{{> salir}}
 				        {{else}}
-				        	<li class=""><a href="#" id="logout">Logout</a></li>
+				        	<li class=""><a href="#" data-toggle="modal" data-target="#ingresar">Login</a></li>
 				        {{/if}}
 				      </ul>
 				    </div>
