@@ -1,169 +1,308 @@
 <template name="principal">
-<div  id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-	
-	  	<!--banner-->
-	<section id="banner" class="banner">
-		<div class="bg-color">
-			<nav class="navbar navbar-default navbar-fixed-top">
-			  <div class="container">
-			  	<div class="col-md-12">
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
-				    </div>
-				    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-				      <ul class="nav navbar-nav">
-				        <li class="active"><a href="#banner">Inicio</a></li>
-				        <li class=""><a href="#service">Servicios</a></li>
-				        <li class=""><a href="#testimonial">Testimonios</a></li>
-				        <li class=""><a href="#contact">Contacto</a></li>
-				        <li class=""><a href="" data-toggle="modal" data-target="#registrar">Registro</a></li>
-				        {{#if currentUser}}
-				        	{{> salir}}
-				        {{else}}
-				        	<li class=""><a href="#" data-toggle="modal" data-target="#ingresar">Login</a></li>
-				        {{/if}}
-				      </ul>
-				    </div>
-				</div>
-			  </div>
-			</nav>
-			<div class="container">
-				<div class="row">
-					<div class="banner-info">
-						<div class="banner-logo text-center">
-							<img src="img/logo.png" class="img-responsive">
-						</div>
-						<div class="banner-text text-center">
-							<h1 class="white">Plataforma Virtual Educativa U.A.T.F.</h1>
-							<p>Cada dia se hace mas importante tener paltaformas educativas a distancia que solventen adecuandamente el preceso de enseñanza y eliminando de esta forma las barreras geograficas entre estudiante y docente facilitador........</p>
-						</div>
-						<div class="overlay-detail text-center">
-			               <a href="#service"><i class="fa fa-angle-down"></i></a>
-			             </div>		
-					</div>
-				</div>
+<head>
+	<title>U.A.T.F.</title>
+	<link rel="stylesheet" href="css/principal.css">
+</head>
+<div id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+	<!--banner-->
+<section id="banner" class="banner">
+	<div class="bg-color">
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container">
+		  	<div class="col-md-12">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#"><img src="images/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+			    </div>
+			    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+			      <ul class="nav navbar-nav">
+			        <li class="active"><a href="#banner">Inicio</a></li>
+			        <li class=""><a href="#service">Servicios</a></li>
+			        <li class=""><a href="#docentes">Docentes</a></li>
+			        <li class=""><a href="#testimonial">Testimonios</a></li>
+			        <li class=""><a href="#contact">Contacto</a></li>
+			        <li class=""><a href="#" data-toggle="modal" data-target="#ingresar">Ingresar</a></li>
+			      </ul>
+			    </div>
 			</div>
-		</div>
-	</section>
-
-
-	<section id="service" class="section-padding">
+		  </div>
+		</nav>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-sm-4">
-					<h2 class="ser-title">Nuestros Servicios</h2>
-					<hr class="botm-line">
-					<p>Básicamente contiene herramientas que pueden servir para estar en línea con un amplio conocimiento de los cursos virtuales los cuales se daran con docentes en linea teniendo asi una gran capacidad de aprendizaje sin estar presente en la clase de manera fisica.</p>
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="service-info">
-						<div class="icon">
-							<i class="fa fa-graduation-cap"></i>
-						</div>
-						<div class="icon-info">
-							<h4>Soporte Las 24 horas</h4>
-							<p>el soporte tecnico tendra enlas 24 horas del dia, en las cuales los administradores y facilitadores de cada curso tendran la capacidad de poder subir un amplio material para poder ser descargado por la cuenta del estudiante el cual tendra la facilidad de tener el material del curso al cual se inscribio.</p>
-						</div>
+				<div class="banner-info">
+					<div class="banner-logo text-center">
+						<img src="images/logo.png" class="img-responsive">
 					</div>
-					<div class="service-info">
-						<div class="icon">
-							<i class="fa fa-graduation-cap"></i>
-						</div>
-						<div class="icon-info">
-							<h4>Atencion Personalizada</h4>
-							<p>Se cuenta con una atencion individual en el area del chat al cual podra tener acceso el estudiante que cuente con una cuenta, el ismo si esta en el horario en los cuales los facilitadores estan activos podran tener un chat personalizado en tiempo real con el o la facilitador/a.</p>
-						</div>
+					<div class="banner-text text-center">
+						<h1 class="white">Plataforma Virtual U.A.T.F.</h1>
+						<p>Plataforma Educativa para establecer un contacto organizado con un grupo de personas que compartan intereses, básicamente contiene herramientas que pueden servir para estar en línea con un colectivo y programar actividades, compartir ideas, material educativo o administrar un curso virtual 100% o que sirva como complemento de un curso presencial.</p>
+						<a href="#contact" class="btn btn-appoint">Contactanos</a>
 					</div>
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="service-info">
-						<div class="icon">
-							<i class="fa fa-graduation-cap"></i>
-						</div>
-						<div class="icon-info">
-							<h4>Acceso mediante las redes sociales</h4>
-							<p>Esta habilitado dentro de la plataforma la habilitacion mediante redes sociales como Facebook, Twiter, etc, 
-								siendo esta un factor el cual influye para la habilitacion correcta del usuario.</p>
-						</div>
-					</div>
-					<div class="service-info">
-						<div class="icon">
-							<i class="fa fa-graduation-cap"></i>
-						</div>
-						<div class="icon-info">
-							<h4>Consultas y Sugerencias</h4>
-							<p>En caso que una persona que no este inscrito dentro de la plataforma, tendra una opcion de hacer una sola consulta la cual se dara respuesta una ves que la persna deje su correo electronico, tambien un usuario tene un referente de buzon de sugerencias loscualess toaran en cuenta para mejorar la calidad de la plataforma virtual.</p>
-						</div>
-					</div>
+					<div class="overlay-detail text-center">
+		               <a href="#service"><i class="fa fa-angle-down"></i></a>
+		             </div>		
 				</div>
 			</div>
 		</div>
-	</section>
-
-
-		<section id="testimonial" class="section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2 class="ser-title">Vea lo que opinan los estudiantes</h2>
-					<hr class="botm-line">
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="testi-details">
-						<!-- Paragraph -->
-						<p>esta es una plataforma asombrosa<aliqua class=""></aliqua></p>
-					</div>
-					<div class="testi-info">
-						<!-- User Image -->
-						<a href="#"><img src="img/1.png" alt="" class="img-responsive"></a>
-						<!-- User Name -->
-						<h3>Poke<span>Squirtle</span></h3>
-					</div>
-				</div>
-			    <div class="col-md-4 col-sm-4">
-					<div class="testi-details">
-						<!-- Paragraph -->
-						<p>es asombroso ......hay material pa descargar</p>
-					</div>
-					<div class="testi-info">
-						<!-- User Image -->
-						<a href="#"><img src="img/2.png" alt="" class="img-responsive"></a>
-						<!-- User Name -->
-						<h3>Poke<span>Bulbasaur</span></h3>
-					</div>
-				</div>
-			    <div class="col-md-4 col-sm-4">
-					<div class="testi-details">
-						<!-- Paragraph -->
-						<p>los facilitadores son de un nivel alto de enseñanza.</p>
-					</div>
-					<div class="testi-info">
-						<!-- User Image -->
-						<a href="#"><img src="img/3.png" alt="" class="img-responsive"></a>
-						<!-- User Name -->
-						<h3>Poke<span>Charmander</span></h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-<div class="row">
-	{{>Template.dynamic template=banner}}
-	
 	</div>
-
-
-<!-- ingresar -->
-{{> ingreso}}
-	
-<!-- registro -->
-
-{{> registro}}
-	
+</section>
+<!--/ banner-->
+<!--service-->
+<section id="service" class="section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<h2 class="ser-title">Nuestros Servicios</h2>
+				<hr class="botm-line">
+				<p>Básicamente contiene herramientas que pueden servir para estar en línea con un colectivo y programar actividades, compartir ideas, material educativo o administrar un curso virtual 100% o que sirva como complemento de un curso presencial.</p>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="service-info">
+					<div class="icon">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+					<div class="icon-info">
+						<h4>Soporte Las 24 horas</h4>
+						<p>Se otorgara soporte tecnico las 24 horas del dia, en las cuales los administradores y facilitadores de cada curso tendran la capacidad de poder subir un amplio compendio de materiales para poder ser descargado por los estudiante los cuales tendran la facilidad de tener el material del curso al cual se inscribio.</p>
+					</div>
+				</div>
+				<div class="service-info">
+					<div class="icon">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+					<div class="icon-info">
+						<h4>Atencion Personalizada</h4>
+						<p>Se cuenta con una atencion individual en el area del chat al cual podra tener acceso el estudiante que cuente con una cuenta, el ismo si esta en el horario en los cuales los facilitadores estan activos podran tener un chat personalizado en tiempo real con el o la facilitador</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="service-info">
+					<div class="icon">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+					<div class="icon-info">
+						<h4>Acceso mediante redes sociales</h4>
+						<p>Esta habilitado dentro de la plataforma la habilitacion mediante redes sociales como Facebook, Twiter, etc, siendo esta un factor el cual influye para la habilitacion correcta 
+						del usuario.</p>
+					</div>
+				</div>
+				<div class="service-info">
+					<div class="icon">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+					<div class="icon-info">
+						<h4>Consultas y Sugerencias</h4>
+						<p>En caso que una persona que no este inscrito dentro de la plataforma, tendra una opcion de hacer una sola consulta la cual se dara respuesta una ves que la persna deje su correo electronico, tambien un usuario tene un referente de buzon de sugerencias loscualess toaran en cuenta para mejorar la calidad de la plataforma virtual.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/ service-->
+<!--about-->
+<section id="docentes" class="section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="ser-title">Plantel Docente</h2>
+				<hr class="botm-line">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6">
+		      <div class="thumbnail"> 
+		      	<img src="images/2.jpg" alt="..." class="team-img">
+		        <div class="caption">
+		          <h3>Jessica Wally</h3>
+		          <p>Ingeniero de Sistemas</p>
+		          <ul class="list-inline">
+		            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+		            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-3 col-sm-3 col-xs-6">
+		      <div class="thumbnail"> 
+		      	<img src="images/1.jpg" alt="..." class="team-img">
+		        <div class="caption">
+		          <h3>Iai Donas</h3>
+		          <p>Ingeniero de Sistemas</p>
+		          <ul class="list-inline">
+		            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+		            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-3 col-sm-3 col-xs-6">
+		      <div class="thumbnail"> 
+		      	<img src="images/2.jpg" alt="..." class="team-img">
+		        <div class="caption">
+		          <h3>Amanda Denyl</h3>
+		          <p>ingeniero de Sistemas</p>
+		          <ul class="list-inline">
+		            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+		            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-3 col-sm-3 col-xs-6">
+		      <div class="thumbnail"> 
+		      	<img src="images/1.jpg" alt="..." class="team-img">
+		        <div class="caption">
+		          <h3>Jason Davis</h3>
+		          <p>Ingeniero de Sistemas</p>
+		          <ul class="list-inline">
+		            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+		            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		</div>
+	</div>
+</section>
+<!--/ about -->
+<!--testimonial-->
+<section id="testimonial" class="section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="ser-title">Vea lo que opinan los estudiantes</h2>
+				<hr class="botm-line">
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="testi-details">
+					<!-- Paragraph -->
+					<p>Esta es una plataforma asombrosa <aliqua class=""></aliqua></p>
+				</div>
+				<div class="testi-info">
+					<!-- User Image -->
+					<a href="#"><img src="images/thumb.png" alt="" class="img-responsive"></a>
+					<!-- User Name -->
+					<h3>Alex<span>Texas</span></h3>
+				</div>
+			</div>
+		    <div class="col-md-4 col-sm-4">
+				<div class="testi-details">
+					<!-- Paragraph -->
+					<p>Es asombroso ......hay material pa descargar</p>
+				</div>
+				<div class="testi-info">
+					<!-- User Image -->
+					<a href="#"><img src="images/thumb.png" alt="" class="img-responsive"></a>
+					<!-- User Name -->
+					<h3>Alex<span>Texas</span></h3>
+				</div>
+			</div>
+		    <div class="col-md-4 col-sm-4">
+				<div class="testi-details">
+					<!-- Paragraph -->
+					<p>Los facilitadores son de un nivel alto de enseñanza.</p>
+				</div>
+				<div class="testi-info">
+					<!-- User Image -->
+					<a href="#"><img src="images/thumb.png" alt="" class="img-responsive"></a>
+					<!-- User Name -->
+					<h3>Alex<span>Texas</span></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/ testimonial-->
+<!--cta 2-->
+<section id="cta-2" class="section-padding">
+	<div class="container">
+		<div class=" row">
+			<div class="col-md-2"></div>
+            <div class="text-right-md col-md-4 col-sm-4">
+              <h2 class="section-title white lg-line">« Palabras<br> a recordar »</h2>
+            </div>
+            <div class="col-md-4 col-sm-5">
+             “Nunca consideres el estudio como una obligación, sino como una oportunidad para penetrar en el bello y maravilloso mundo del saber.”
+              <p class="text-right text-primary"><i>— Albert Einstein.</i></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+	</div>
+</section>
+<!--cta-->
+<!--contact-->
+<section id="contact" class="section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="ser-title">Contactanos</h2>
+				<hr class="botm-line">
+			</div>
+			<div class="col-md-4 col-sm-4">
+		      <h3>Informacion</h3>
+		      <div class="space"></div>
+		      <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i> Av. del Maestro - Av. Civica<br>
+		        Potosí - Bolivia</p>
+		      <div class="space"></div>
+		      <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>info@uatf.com</p>
+		      <div class="space"></div>
+		      <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>591-2-26227300 </p>
+		    </div>
+			<div class="col-md-8 col-sm-8 marb20">
+				<div class="contact-info">
+						<h3 class="cnt-ttl">Realice su consulta</h3>
+						<div class="space"></div>
+                          <div id="sendmessage">Su mensaje ha sido enviado gracias</div>
+                          <div id="errormessage"></div>
+						<form action="" method="post" role="form" class="contactForm">
+						    <div class="form-group">
+                                  <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Nombre completo" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                  <div class="validation"></div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Correo electronico" data-rule="email" data-msg="Please enter a valid email" />
+                                  <div class="validation"></div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                  <div class="validation"></div>
+                              </div>
+                              <div class="form-group">
+                                  <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
+                                  <div class="validation"></div>
+                              </div>
+                              
+							<div class="form-action">
+								<button type="submit" class="btn btn-form">Enviar mensaje</button>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/ contact-->
+<!--footer-->
+<footer id="footer">
+	<div class="footer-line">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					© Copyright U.A.T.F. 2017 Todos los derechos Reservados
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!--/ footer-->
 </div>
+{{>credenciales}}
 </template>
