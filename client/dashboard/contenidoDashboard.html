@@ -1,0 +1,9 @@
+<template name="contenidoDasboard">
+	{{#if isInRole 'estudiante'}}
+		{{>cursosEstudiante}}
+	{{else}}
+		{{#if isInRole 'facilitador' 'admin'}}
+			{{>cursosFacilitador}}
+		{{/if}}
+	{{/if}}
+</template>

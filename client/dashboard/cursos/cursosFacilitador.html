@@ -1,0 +1,23 @@
+<template name="cursosFacilitador">
+	<button class="btn btn-success" id="btnAddCurso" data-toggle="modal" data-target="#modalAddCurso"><i class="fa fa-plus"></i> Agregar curso</button>
+	<br>
+	<br>
+	<div class="row">
+	{{#each cursosList}}
+		<div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	      <img src="images/curso.jpg" alt="Curso">
+	      <div class="caption">
+	        <h3>{{titulo}}</h3>
+	        <p>{{autor}}</p>
+	        <p>{{descripcion}}</p>
+	        <p class="text-right">
+	          <a href="">Ver mas detalles <i class="fa fa-arrow-circle-right"></i></a>
+	        </p>
+	      </div>
+	    </div>
+	  </div>
+	{{/each}}
+	</div>
+	{{>agregarCurso}}
+</template>
