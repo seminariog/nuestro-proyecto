@@ -11,6 +11,5 @@ Template.dashboard.events({
 		e.preventDefault();
 		Meteor.logout();
 		FlowRouter.go("/");
-		$('.modal-backdrop').remove();
 	}
 });

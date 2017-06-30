@@ -5,14 +5,13 @@ Template.ingresar.events({
 	'submit #formIngresar': function(e){
 		e.preventDefault();
 		var target= e.target;
+		$("#ingresar").modal("hide");
+  	e.stopPropagation();
 		Meteor.loginWithPassword(target.username.value, target.password.value, function(error){
 			if(error){
 				alert(error);
 			}
 			else{
-				$('#ingresar').modal('hide');
-				$('body').removeClass('modal-open');
-				$('.modal-backdrop').remove();
 				FlowRouter.go("/dashboard");
 			}
 		});

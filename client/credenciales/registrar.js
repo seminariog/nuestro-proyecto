@@ -17,21 +17,19 @@ Template.registrar.events({
 				nombres: target.nombres.value,
 			} 
 		};
-		Accounts.createUser(usuario, function(error){
+		$("#ingresar").modal("hide");
+  	e.stopPropagation();
+		var idUsuario = Accounts.createUser(usuario, function(error){
 			if(error){
 				alert(error);
 			}
-			else{
-				Meteor.loginWithPassword(usuario.username,usuario.password, function(err){
-					if(err)
-						alert(err);
-					else
-						$('#ingresar').modal('hide');
-						$('body').removeClass('modal-open');
-						$('.modal-backdrop').remove();
-						FlowRouter.go("/dashboard");
-				});
-			}
+		});
+		Meteor.loginWithPassword(usuario.username,usuario.password, function(err){
+			if(err)
+				alert(err);
+			else
+				Meteor.call('rolUsuario', Meteor.userId());
+				FlowRouter.go("/dashboard");
 		});
 	}
 });
