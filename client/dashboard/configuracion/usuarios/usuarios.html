@@ -1,0 +1,31 @@
+<template name="usuarios">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="/dashboard/config">Principal</a></li>
+	  <li role="presentation" class="active"><a href="/dashboard/config/users">Usuarios</a></li>
+	</ul>
+	<h3>Nomina de Usuarios</h3>
+	<table class="table table-striped">
+		<thead>
+			<th>ID</th>
+			<th>Apellidos, Nombres</th>
+			<th>UserName</th>
+			<th>Cargo</th>
+			<th>Cambiar Rol</th>
+		</thead>
+		<tbody>
+			{{#each usuarios}}
+				<tr>
+					<td>{{_id}}</td>
+					<td>{{profile.paterno}} {{profile.materno}}, {{profile.nombres}}</td>
+					<td>{{username}}</td>
+					<td>{{roles}}</td>
+					<th>
+						<button class="btn btn-xs btn-default btn-administrador">Administrador</button>
+						<button class="btn btn-xs btn-default btn-facilitador">Facilitador</button>
+						<button class="btn btn-xs btn-default btn-estudiante">Estudiante</button>
+					</th>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>

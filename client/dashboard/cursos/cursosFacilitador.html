@@ -1,23 +1,67 @@
 <template name="cursosFacilitador">
-	<button class="btn btn-success" id="btnAddCurso" data-toggle="modal" data-target="#modalAddCurso"><i class="fa fa-plus"></i> Agregar curso</button>
-	<br>
-	<br>
 	<div class="row">
-	{{#each cursosList}}
-		<div class="col-sm-6 col-md-3">
+      <div class="col-md-12">
+          <h2 class="page-header">Cursos</h2>
+          <button class="btn btn-success" data-toggle="modal" data-target="#crearCurso"><i class="fa fa-plus"></i> Agregar Cursos</button>
+          <br>
+          <br>
+      </div>
+  </div>
+  <div class="row">
+  	{{#each cursos}}
+  	<div class="col-sm-6 col-md-3">
 	    <div class="thumbnail">
-	      <img src="images/curso.jpg" alt="Curso">
+	      <img src="{{imagen.link}}" alt="...">
 	      <div class="caption">
-	        <h3>{{titulo}}</h3>
-	        <p>{{autor}}</p>
-	        <p>{{descripcion}}</p>
-	        <p class="text-right">
-	          <a href="">Ver mas detalles <i class="fa fa-arrow-circle-right"></i></a>
+	        <h3 class="text-center">{{titulo}}</h3>
+	        <p><strong>Facilitador:</strong> {{cursoAutor.profile.paterno}} {{cursoAutor.profile.materno}}, {{cursoAutor.profile.nombres}}</p>
+	        <p><strong>Inicio del curso:</strong> {{moment inicio}}</p>
+	        <p><strong>Descripcion: </strong>{{descripcion}}</p>
+	        <p>
+	        {{#if creador}}
+						<a href="/dashboard/cursos/{{_id}}" class="btn btn-primary" role="button">Ver Curso</a> <a href="#" class="btn btn-default" role="button">Modificar</a>
+					{{else}}
+	        	<a href="/dashboard/cursos/{{_id}}" class="btn btn-primary" role="button">Incribete</a>
+	        {{/if}}
 	        </p>
+	      </div>
+    	</div>
+ 		</div>
+ 		{{/each}}
+	</div>
+
+	<div class="modal fade" id="crearCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Crear Curso</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form id="formCrearCurso">
+	        	<div class="form-group">
+	        		<label for="titulo">Titulo</label>
+	        		<input type="text" name="titulo" class="form-control">
+	        	</div>
+	        	<div class="form-group">
+	        		<label for="descripcion">Descripcion del Curso</label>
+	        		<textarea name="descripcion" rows="3" class="form-control"></textarea>
+	        	</div>
+	        	<div class="form-group">
+	        		<label for="inicio">Fecha de Inicio</label>
+	        		<input type="date" name="inicio" placeholder="dd/mm/aaaa" class="form-control">
+	        	</div>
+	        	<div class="form-group">
+	        		<label for="imagen">Imagen</label>
+	        		<input type="file" name="imagen" class="form-control" required>
+	        	</div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+	        <button type="submit" class="btn btn-primary" form="formCrearCurso">Registrar curso</button>
 	      </div>
 	    </div>
 	  </div>
-	{{/each}}
 	</div>
-	{{>agregarCurso}}
 </template>

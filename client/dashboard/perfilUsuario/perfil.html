@@ -1,0 +1,54 @@
+<template name="perfil">
+	<div class="row">
+      <div class="col-md-12">
+          <h2 class="page-header">Perfil de Usuario</h2>
+
+      </div>
+  </div>
+  <div class="row">
+  	<div class="col-md-6">
+  		<div class="panel panel-info">
+  			<div class="panel-heading">
+  				<h3 class="panel-title">{{datosUsuario.profile.paterno}} {{datosUsuario.profile.materno}}, {{datosUsuario.profile.nombres}}</h3>
+  			</div>
+  			<div class="panel-body">
+  				<div class="row">
+  					<div class="col-md-5">
+  						<img src="/images/perfil.jpg" alt="">
+  					</div>
+  					<div class="col-md-7 list-group">
+  						<ul>
+  							<li class="list-group-item text-center">
+  								<strong>Datos de cuenta</strong>
+  							</li>
+  							<li class="list-group-item">
+  								<strong>Apellido Paterno:</strong>
+  								{{datosUsuario.profile.paterno}}
+  							</li>
+  							<li class="list-group-item">
+  								<strong>Apellido Materno:</strong>
+  								{{datosUsuario.profile.materno}}
+  							</li>
+  							<li class="list-group-item">
+  								<strong>Nombres:</strong>
+  								{{datosUsuario.profile.nombres}}
+  							</li>
+  							<li class="list-group-item">
+  								<strong>Nombre de Usuario:</strong>
+  								{{datosUsuario.username}}
+  							</li>
+                <li class="list-group-item">
+                  <strong>Correo Electronico:</strong>
+                  {{datosUsuario.emails.[0].address}}
+                </li>
+  						</ul>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="panel-footer">
+  				
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</template>
