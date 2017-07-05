@@ -40,7 +40,6 @@ Template.cursosFacilitador.helpers({
     return Files.findOne(this.idImg);
   },
 	moment: function(dateTime){
-		moment.locale('es');
 		return moment(dateTime).format('DD MMMM YYYY');
 	}
 });

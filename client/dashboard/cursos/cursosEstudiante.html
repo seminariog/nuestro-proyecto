@@ -16,7 +16,13 @@
 	        <p><strong>Facilitador:</strong> {{cursoAutor.profile.paterno}} {{cursoAutor.profile.materno}}, {{cursoAutor.profile.nombres}}</p>
 	        <p><strong>Inicio del curso:</strong> {{moment inicio}}</p>
 	        <p><strong>Descripcion: </strong>{{descripcion}}</p>
-	        <p><a href="/dashboard/cursos/{{_id}}" class="btn btn-primary" role="button">Incribete</a></p>
+	        <p class="text-right">
+		        {{#if inscrito}}
+		        	<a href="/dashboard/cursos/{{_id}}">Ingresar</a>
+		        {{else}}
+		        	<button class="btnIncripcion btn btn-primary">Tomar Curso</button>
+		        {{/if}}
+	        </p>
 	      </div>
     	</div>
  		</div>

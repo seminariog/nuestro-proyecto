@@ -24,15 +24,33 @@ var cursosSchema = new SimpleSchema({
 	},
 	idImg:{
 		type: String
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
 	}
 });
 Cursos.attachSchema(cursosSchema);
 /*---Collection inscripciones*/
-/*Inscripcion = new Mongo.Collection('inscripcion');
+Inscripciones = new Mongo.Collection('inscripciones');
 
-var inscripcionSchema = new SimpleSchema({
+var inscripcionesSchema = new SimpleSchema({
 	idCurso: {
 		type: String
 	},
-	id
-});*/
+	idUsuario: {
+		type: String,
+		autoValue: function(){
+			return Meteor.userId();
+		},
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
+	}
+});
+Inscripciones.attachSchema(inscripcionesSchema);
