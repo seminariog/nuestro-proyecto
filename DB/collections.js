@@ -1,3 +1,10 @@
+Files = new FilesCollection({
+  storagePath: '/meteor/files_plataforma',
+  downloadRoute: '/meteor/files_plataforma/download',
+  collectionName: 'files',
+  allowClientCode: false,
+});
+/*---Colleccion de Cursos---*/
 Cursos = new Mongo.Collection('cursos');
 var cursosSchema = new SimpleSchema({
 	titulo: {
@@ -14,13 +21,36 @@ var cursosSchema = new SimpleSchema({
 	},
 	inicio:{
 		type: Date
+	},
+	idImg:{
+		type: String
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
 	}
 });
 Cursos.attachSchema(cursosSchema);
-Files = new FilesCollection({
-  storagepath: 'E:/meteor/files_plataforma',
-  downloadRoute: 'E:/meteor/files_plataforma/download',
-  collectionName: 'files',
-  allowClientCode: false,
-  
+/*---Collection inscripciones*/
+Inscripciones = new Mongo.Collection('inscripciones');
+
+var inscripcionesSchema = new SimpleSchema({
+	idCurso: {
+		type: String
+	},
+	idUsuario: {
+		type: String,
+		autoValue: function(){
+			return Meteor.userId();
+		},
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
+	}
 });
+Inscripciones.attachSchema(inscripcionesSchema);

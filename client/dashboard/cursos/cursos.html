@@ -1,5 +1,9 @@
 <template name="cursos">
 	{{#if isInRole 'facilitador'}}
 		{{>cursosFacilitador}}
+	{{else}}
+		{{#if isInRole "estudiante"}}
+			{{>cursosEstudiante}}
+		{{/if}}
 	{{/if}}
 </template>

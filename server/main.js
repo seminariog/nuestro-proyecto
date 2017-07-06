@@ -21,15 +21,24 @@ Meteor.startup(() => {
 		children:[
 			{
 				find(curso){
-					return Meteor.users.find(
-						{_id: curso.autor}
-					);
+					return Meteor.users.find({_id: curso.autor});
+				}
+			},
+			{
+				find(curso){
+					return Inscripciones.find({$and:[
+						{idCurso: curso._id},
+						{idUsuario: this.userId}
+					]});
 				}
 			}
 		]
 	});
 	Meteor.publish('curso', function (idCurso) {
 		return Cursos.find({_id:idCurso});		
+	});
+	Meteor.publish('inscripciones', function(){
+		return Inscripciones.find();
 	});
 	/*---- Methods ----*/
 	Meteor.methods({
@@ -48,6 +57,10 @@ Meteor.startup(() => {
 		'crearCurso': function(curso){
 			var idCurso = Cursos.insert(curso);
 			return idCurso;
+		},
+		'agregarInscripcion': function(idCurso){
+			Inscripciones.insert(idCurso);
 		}
+
 	});
 });
