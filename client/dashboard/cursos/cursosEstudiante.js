@@ -27,5 +27,13 @@ Template.cursosEstudiante.events({
 			idCurso: this._id,
 		}
 		Meteor.call('agregarInscripcion', inscripcion);
+		swal({
+		  title: 'Registrado',
+		  html: 'Usted se ha registrado al curso <strong>'+this.titulo+'</strong>. Ahora puede Ingresar al contenido del curso',
+		  type: 'success',
+		  confirmButtonText: 'OK'
+		});
 	}
+
+
 });

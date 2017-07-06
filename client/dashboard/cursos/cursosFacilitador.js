@@ -3,7 +3,7 @@ Template.cursosFacilitador.events({
 		e.preventDefault();
 		var target = e.target;
 		//console.log(target.imagen.files[0]);
-		var upload = Files.insert({
+		var upload = ImagenesCursos.insert({
 			file: target.imagen.files[0],
 			streams: 'dynamic',
 			chunkSize: 'dynamic',
@@ -21,6 +21,28 @@ Template.cursosFacilitador.events({
 		target.imagen.value = '';
 		$("#crearCurso").modal("hide");
   	e.stopPropagation();
+	},
+	'click .btnEliminarCurso': function(){
+		var idCurso = this._id;
+		swal({
+		  title: '¿Eliminar Curso?',
+		  text: "Esta seguro que desea eliminar el curso",
+		  type: 'warning',
+		  showCloseButton: true,
+		  showCancelButton: true,
+		  confirmButtonText: 'Si, Eliminar Curso',
+		  cancelButtonText: 'No, Cancelar',
+		  confirmButtonClass: 'btn btn-success btn-block',
+		  cancelButtonClass: 'btn btn-danger btn-block',
+		  buttonsStyling: false
+		}).then(function () {
+			Meteor.call('eliminarCurso', idCurso);
+		  swal(
+		    'Eliminado!',
+		    'El curso ha sido eliminado',
+		    'success',
+		  )
+		});
 	}
 });
 Template.cursosFacilitador.helpers({
@@ -37,7 +59,7 @@ Template.cursosFacilitador.helpers({
 		return false;
 	},
 	imagen() {
-    return Files.findOne(this.idImg);
+    return ImagenesCursos.findOne(this.idImg);
   },
 	moment: function(dateTime){
 		return moment(dateTime).format('DD MMMM YYYY');

@@ -215,3 +215,80 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+/*******Mis estilos********/
+video{
+    width: 100%;
+    height: auto;
+}
+.square-material{
+    border-right: 2px solid #ddd;
+    border-radius: 3px;
+    background: #f4f5f5;
+    margin-bottom: 10px;
+}
+.box-material{
+    background-color: #d5d5d5;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 150px;
+}
+.text-steelBlue{
+    color: steelblue;
+}
+.text-green{
+    color: #81c081;
+}
+
+/****/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/******/
+.i-user{
+    background-color: #263238;
+    color: #fff;
+    margin-bottom: 3px;
+    border-radius: 5px;
+}
+.other-user{
+    background-color: #78909c;
+    color: #fff;
+    margin-bottom: 3px;
+    border-radius: 5px;
+}
+.caja{
+    position: relative;
+}
+.msgChat{
+    position: fixed;
+}

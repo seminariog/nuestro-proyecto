@@ -19,7 +19,8 @@
 	        <p><strong>Descripcion: </strong>{{descripcion}}</p>
 	        <p>
 	        {{#if creador}}
-						<a href="/dashboard/cursos/{{_id}}" class="btn btn-primary" role="button">Ver Curso</a> <a href="#" class="btn btn-default" role="button">Modificar</a>
+						<a href="/dashboard/adminCurso/{{_id}}" class="btn btn-primary btn-block" role="button"><i class="fa fa-folder-open"></i> Administrar Curso</a>
+						<button class="btn btn-block btn-danger btnEliminarCurso"><i class="fa fa-trash"></i> Eliminar Curso</button>
 					{{else}}
 	        	<a href="/dashboard/cursos/{{_id}}" class="btn btn-primary linkInscripcion" role="button">Incribete</a>
 	        {{/if}}

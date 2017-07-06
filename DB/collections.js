@@ -1,7 +1,15 @@
-Files = new FilesCollection({
-  storagePath: '/meteor/files_plataforma',
+ImagenesCursos = new FilesCollection({
+  storagePath: '/meteor/files_plataforma/cursos',
   downloadRoute: '/meteor/files_plataforma/download',
-  collectionName: 'files',
+  collectionName: 'imagenesCursos',
+  allowClientCode: false,
+});
+
+/*--- Materiales de los cursos---*/
+MaterialesCursos = new FilesCollection({
+  storagePath: '/meteor/files_plataforma/cursos/materiales',
+  downloadRoute: '/meteor/files_plataforma/download',
+  collectionName: 'materialesCursos',
   allowClientCode: false,
 });
 /*---Colleccion de Cursos---*/
@@ -33,6 +41,7 @@ var cursosSchema = new SimpleSchema({
 	}
 });
 Cursos.attachSchema(cursosSchema);
+
 /*---Collection inscripciones*/
 Inscripciones = new Mongo.Collection('inscripciones');
 
@@ -54,3 +63,28 @@ var inscripcionesSchema = new SimpleSchema({
 	}
 });
 Inscripciones.attachSchema(inscripcionesSchema);
+
+/*--- Collecion materiales ---*/
+Materiales = new Mongo.Collection('materiales');
+
+var materialesSchema = new SimpleSchema({
+	titulo: {
+		type: String
+	},
+	descripcion: {
+		type: String
+	},
+	idVideo: {
+		type: String
+	},
+	idCurso: {
+		type: String
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
+	}
+});
+
