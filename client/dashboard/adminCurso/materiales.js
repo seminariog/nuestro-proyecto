@@ -3,6 +3,9 @@ boxMat.set('archivos');
 Template.materiales.helpers({
 	boxMaterial: function () {
 		return boxMat.get();
+	},
+	materiales: function(){
+		return Materiales.find();
 	}
 });
 

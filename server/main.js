@@ -40,7 +40,7 @@ Meteor.startup(() => {
 	});
 	/*--- Curso con materiales y mensajes ---*/
 	Meteor.publish('materiales', function(idCurso){
-		return Materiales.find(idCurso: idCurso);
+		return Materiales.find({idCurso: idCurso});
 	});
 	Meteor.publish('curso', function (idCurso) {
 		return Cursos.find({_id:idCurso});		
@@ -71,7 +71,10 @@ Meteor.startup(() => {
 		},
 		'agregarInscripcion': function(idCurso){
 			Inscripciones.insert(idCurso);
-		}
+		},
+		'agregarMaterial': function(material){
+			Materiales.insert(material);
+		},
 
 	});
 });

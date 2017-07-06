@@ -226,11 +226,12 @@ video{
     background: #f4f5f5;
     margin-bottom: 10px;
 }
-.box-material{
+.box-archivos{
     background-color: #d5d5d5;
-    overflow-x: hidden;
-    overflow-y: auto;
     height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    overflow-x: hidden;
 }
 .text-steelBlue{
     color: steelblue;
@@ -239,6 +240,34 @@ video{
     color: #81c081;
 }
 
+.i-user{
+    background-color: #263238;
+    color: #fff;
+    margin-bottom: 3px;
+    border-radius: 8px;
+}
+.other-user{
+    background-color: #78909c;
+    color: #fff;
+    margin-bottom: 3px;
+    border-radius: 8px;
+}
+
+.i-user p, .other-user p{
+    margin-bottom: 1px; 
+}
+
+.box-chat{
+    background-color: #d5d5d5;
+    height: 150px;
+    margin-bottom: 15px;
+    padding: 1em;
+    padding-top: 0;
+}
+.mesages{
+    overflow-y: auto;
+    height: 83%;
+}
 /****/
 ::-webkit-scrollbar {
   width: 5px;
@@ -274,21 +303,3 @@ video{
   background: transparent;
 }
 /******/
-.i-user{
-    background-color: #263238;
-    color: #fff;
-    margin-bottom: 3px;
-    border-radius: 5px;
-}
-.other-user{
-    background-color: #78909c;
-    color: #fff;
-    margin-bottom: 3px;
-    border-radius: 5px;
-}
-.caja{
-    position: relative;
-}
-.msgChat{
-    position: fixed;
-}
