@@ -6,7 +6,10 @@ Template.materiales.helpers({
 	},
 	materiales: function(){
 		return Materiales.find();
-	}
+	},
+	video() {
+    return MaterialesCursos.findOne(this.idVideo);
+  },
 });
 
 Template.materiales.events({
