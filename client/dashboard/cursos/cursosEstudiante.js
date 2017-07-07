@@ -13,7 +13,7 @@ Template.cursosEstudiante.helpers({
 		return false;
 	},
 	imagen() {
-    return Files.findOne(this.idImg);
+    return ImagenesCursos.findOne(this.idImg);
   },
 	moment: function(dateTime){
 		return moment(dateTime).format('DD MMMM YYYY');
