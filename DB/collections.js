@@ -71,9 +71,6 @@ var materialesSchema = new SimpleSchema({
 	titulo: {
 		type: String
 	},
-	descripcion: {
-		type: String
-	},
 	idVideo: {
 		type: String
 	},
