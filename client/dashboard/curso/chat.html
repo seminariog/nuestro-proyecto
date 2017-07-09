@@ -1,27 +1,22 @@
 <template name="chat">
-	<div class="box-chat">
-		<div class="row mesages">
-			<div class="col-md-10 other-user">
-				<p>Usuario</p>
-				<p>mensaje 1</p>
-			</div>
-			<div class="col-md-10 other-user">
-				<p>Usuario</p>
-				<p>mensaje 1</p>
-			</div>
-			<div class="col-md-10 other-user">
-				<p>Usuario</p>
-				<p>mensaje 1</p>
-			</div>
-			<div class="col-md-10 col-md-offset-2 i-user">
-				<p>Usuario</p>
-				<p>mensaje 1</p>
-			</div>
-		</div>
-		<div class="row">
-			
-				<input type="text" class="form-control" placeholder="escriba su mensaje aqui...">
-			
-		</div>
+<div class="row chat chat-title">
+	<div class="col-md-12">
+		<strong><i class="fa fa-comment"></i> Chat directo</strong>
 	</div>
+</div>
+<div class="row chat chat-body">
+		{{#each mensajes idMaterial}}
+			<div class="{{claseMensaje idUsuario}}">
+				<p>Usuario</p>
+				<p>{{texto}}</p>
+			</div>
+		{{/each}}
+		
+</div>
+<div class="row chat">
+	<form>
+		<input type="hidden" value="{{idMaterial}}" name="material">
+		<input type="text" name="texto" class="form-control" placeholder="Escribe un mensaje..." {{activar salaChat}}>
+	</form>
+</div>
 </template>

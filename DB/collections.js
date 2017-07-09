@@ -71,6 +71,9 @@ var materialesSchema = new SimpleSchema({
 	titulo: {
 		type: String
 	},
+	chatActivo: {
+		type: Boolean,
+	},
 	idVideo: {
 		type: String
 	},
@@ -85,3 +88,30 @@ var materialesSchema = new SimpleSchema({
 	}
 });
 
+Materiales.attachSchema(materialesSchema);
+
+/*--- Coleccion Chat ---*/
+Chat = new Mongo.Collection('chat');
+
+var chatSchema = new SimpleSchema({
+	idUsuario: {
+		type: String,
+		autoValue: function(){
+			return Meteor.userId();
+		},
+	},
+	idMaterial: {
+		type: String
+	},
+	texto:{
+		type: String
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
+	}
+});
+
+Chat.attachSchema(chatSchema);

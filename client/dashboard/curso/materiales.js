@@ -1,22 +1,20 @@
-boxMat = new ReactiveVar();
-boxMat.set('archivos');
 Template.materiales.helpers({
-	boxMaterial: function () {
-		return boxMat.get();
-	},
 	materiales: function(){
 		return Materiales.find();
 	},
-	video() {
+	video: function(){
     return MaterialesCursos.findOne(this.idVideo);
   },
+  readyVideos: function(){
+  	return FlowRouter.subsReady('getVideos');
+  }
 });
 
 Template.materiales.events({
-	'click .btnArchivos': function () {
-		boxMat.set('archivos');
+	'click .btnActivarChat': function(){
+		Meteor.call('activarChat', this._id);
 	},
-	'click .btnChat': function () {
-		boxMat.set('chat');
-	},
+	'click .btnDesactivarChat': function(){
+		Meteor.call('desactivarChat', this._id);
+	}
 });

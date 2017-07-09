@@ -39,8 +39,20 @@ Meteor.startup(() => {
 		]
 	});
 	/*--- Curso con materiales y mensajes ---*/
-	Meteor.publish('materiales', function(idCurso){
-		return Materiales.find({idCurso: idCurso});
+	publishComposite('materiales', function(idCurso){
+		return {
+			find(){
+				return Materiales.find({idCurso:idCurso});
+			},
+			children:[
+			{
+				find(material){
+					return Chat.find({idMaterial:material._id});
+				}
+			}
+
+			]
+		}
 	});
 	Meteor.publish('curso', function (idCurso) {
 		return Cursos.find({_id:idCurso});		
@@ -75,6 +87,14 @@ Meteor.startup(() => {
 		'agregarMaterial': function(material){
 			Materiales.insert(material);
 		},
-
+		'activarChat': function(idMaterial){
+			Materiales.update(idMaterial, {$set: {chatActivo: true}});
+		},
+		'desactivarChat': function(idMaterial){
+			Materiales.update(idMaterial, {$set: {chatActivo: false}});
+		},
+		'insertarMensaje': function(mensaje){
+			Chat.insert(mensaje);
+		}
 	});
 });
