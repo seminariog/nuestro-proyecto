@@ -17,5 +17,8 @@ Template.nuevoMaterial.events({
 		}
 
 		Meteor.call('agregarMaterial', material);
+
+		$("#modalNuevoMaterial").modal("hide");
+  	e.stopPropagation();
 	}
 });

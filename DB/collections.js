@@ -5,6 +5,13 @@ ImagenesCursos = new FilesCollection({
   allowClientCode: false,
 });
 
+/*--- Archivos ---*/
+ArchivosMaterial = new FilesCollection({
+  storagePath: '/meteor/files_plataforma/cursos/archivos',
+  downloadRoute: '/meteor/files_plataforma/download',
+  collectionName: 'archivosMaterial',
+  allowClientCode: false,
+});
 /*--- Materiales de los cursos---*/
 MaterialesCursos = new FilesCollection({
   storagePath: '/meteor/files_plataforma/cursos/materiales',
@@ -115,3 +122,23 @@ var chatSchema = new SimpleSchema({
 });
 
 Chat.attachSchema(chatSchema);
+
+/*--- Archivos ---*/
+Archivos = new Mongo.Collection('archivos');
+
+var archivosSchema = new SimpleSchema({
+	idMaterial: {
+		type: String
+	},
+	idArchivo: {
+		type: String
+	},
+	createdAt:{
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
+	}
+});
+
+Archivos.attachSchema(archivosSchema);

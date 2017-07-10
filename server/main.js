@@ -2,11 +2,14 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 	/*---- Publicaciones ----*/
-	Meteor.publish('getArchivos', function(){
+	Meteor.publish('getImagenesCursos', function(){
 		return ImagenesCursos.find().cursor;
 	});
 	Meteor.publish('getVideos', function(){
 		return MaterialesCursos.find().cursor;
+	});
+	Meteor.publish('getArchivos', function(){
+		return ArchivosMaterial.find().cursor;
 	});
 	Meteor.publish('datosUsuario', function(){
 		return Meteor.users.find({_id: this.userId});
@@ -48,6 +51,12 @@ Meteor.startup(() => {
 			{
 				find(material){
 					return Chat.find({idMaterial:material._id});
+				}
+			},
+			
+			{
+				find(material){
+					return Archivos.find({idMaterial:material._id});
 				}
 			}
 
@@ -95,6 +104,14 @@ Meteor.startup(() => {
 		},
 		'insertarMensaje': function(mensaje){
 			Chat.insert(mensaje);
+		},
+		'insertarArchivo': function(archivo){
+			Archivos.insert(archivo);
+		},
+		'eliminarArchivo': function(idArchivo){
+			idArchivoFile = Archivos.findOne(idArchivo).idArchivo;
+			Archivos.remove(idArchivo);
+			ArchivosMaterial.remove(idArchivoFile);
 		}
 	});
 });

@@ -1,25 +1,24 @@
 <template name="materialesEstudiante">
 	<h3>Materiales</h3>
 	<hr>
-	<div class="row">
-	{{#each materiales}}	
-		<div class="col-md-6 square-material">
-			<h3>{{titulo}}</h3>
+	{{#each materiales}}
+	<div class="row square-material">
+		<div class="col-md-12">
+			<h3 class="text-center">{{titulo}}</h3>
+		</div>
+		<div class="col-md-6">
 			<video controls>
-				<source src='{{video.link}}' tipe="video/mp4">
+				{{#if readyVideos}}
+					<source src='{{video.link}}' tipe="video/mp4">
+				{{else}}
+					Cargando...
+				{{/if}}
 			</video>
-			<div class="row">
-				<div class="col-md-6">
-					<button class="btn btn-block btn-primary btnArchivos">Archivos del curso</button>
-					<br>
-				</div>
-				<div class="col-md-6">
-					<button class="btn btn-block btn-primary btnChat">Chat</button>
-					<br>
-				</div>
-			</div>
-			{{>Template.dynamic template=boxMaterial}}
-		</div>	
-	{{/each}}
+		</div>
+		<div class="col-md-6 ">
+			{{>chat salaChat=chatActivo idMaterial=_id}}
+		</div>
 	</div>
+	{{>archivosEstudiante idMaterial=_id}}
+	{{/each}}
 </template>
