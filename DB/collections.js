@@ -151,19 +151,71 @@ var preguntasSchema = new SimpleSchema({
 	idCurso: {
 		type: String
 	},
+	idUsuario:{
+		type: String
+	},
 	texto:{
 		type: String
 	},
-	votos: {
+	votos:{
 		type: Number
 	},
 	createdAt: {
-		type: Date,
-		autoValue: function(){
-			return new Date();
-		}
+		type: Date
 	}
-
 });
 
 Preguntas.attachSchema(preguntasSchema);
+
+/*------- Votos Preguntas ------*/
+VotosPreguntas = new Mongo.Collection('votosPreguntas');
+
+var votosPreguntasSchema = new SimpleSchema({
+	idPregunta : {
+		type: String
+	},
+	idUsuario: {
+		type: String
+	},
+	createdAt: {
+		type: Date
+	},
+});
+
+VotosPreguntas.attachSchema(votosPreguntasSchema);
+
+/*--------------- Respuestas ---------------*/
+
+Respuestas = new Mongo.Collection('respuestas');
+
+var respuestasSchema = new SimpleSchema({
+	idPregunta: {
+		type: String
+	},
+	idUsuario: {
+		type: String
+	},
+	texto: {
+		type: String
+	},
+	createdAt: {
+		type: Date
+	}
+});
+Respuestas.attachSchema(respuestasSchema);
+/***---------- Votos respuestas--------***/
+
+
+VotosRespuestas = new Mongo.Collection('votosRespuestas');
+
+var votosPreguntasSchema = new SimpleSchema({
+	idRespuesta : {
+		type: String
+	},
+	idUsuario: {
+		type: String
+	},
+	createdAt: {
+		type: Date
+	},
+});

@@ -295,24 +295,39 @@ video{
     transition: color .5s;
 }
 
+.btnDisLike, .btnNotAnswer{
+    color: #2196f3;
+    cursor: pointer;
+}
+
 .box-like p{
     margin: 0 auto;
 }
-
+[id|=answers]{
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .answer-box{
     background: #e7e7e7;
     margin: .2em 0;
     padding: .5em;
 }
-
-.answer-avatar{
-    border-right: 1px solid #aaa;
+.form-responder{
+    margin-bottom: .8em;
+    margin-bottom: 1px solid #000;
+    padding-bottom: .5em;
 }
 .text-small{
     font-style: italic;
     font-size: .7em;
 }
 .btnLikeAnswer:hover{
+    color: #2196f3;
+    cursor: pointer;
+}
+.btnNotLikeAnswer{
     color: #2196f3;
     cursor: pointer;
 }
