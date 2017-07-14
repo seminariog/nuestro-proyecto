@@ -1,3 +1,10 @@
+ImagenesAvatar = new FilesCollection({
+  storagePath: '/meteor/files_plataforma/avatar',
+  downloadRoute: '/meteor/files_plataforma/download',
+  collectionName: 'avatar',
+  allowClientCode: false,
+});
+/*------ imagenes de curso ------*/
 ImagenesCursos = new FilesCollection({
   storagePath: '/meteor/files_plataforma/cursos',
   downloadRoute: '/meteor/files_plataforma/download',
@@ -37,14 +44,18 @@ var cursosSchema = new SimpleSchema({
 	inicio:{
 		type: Date
 	},
+	fin:{
+		type:Date,
+		optional: true,
+	},
 	idImg:{
 		type: String
 	},
+	activo:{
+		type: Boolean
+	},
 	createdAt: {
-		type: Date,
-		autoValue: function(){
-			return new Date();
-		}
+		type: Date
 	}
 });
 Cursos.attachSchema(cursosSchema);
@@ -113,6 +124,9 @@ var chatSchema = new SimpleSchema({
 	texto:{
 		type: String
 	},
+	discusion:{
+		type: Boolean
+	},
 	createdAt: {
 		type: Date,
 		autoValue: function(){
@@ -153,6 +167,9 @@ var preguntasSchema = new SimpleSchema({
 	},
 	idUsuario:{
 		type: String
+	},
+	discusion: {
+		type: Boolean,
 	},
 	texto:{
 		type: String

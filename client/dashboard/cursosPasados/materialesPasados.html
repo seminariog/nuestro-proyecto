@@ -1,0 +1,24 @@
+<template name="materialesPasados">
+	<h3>Materiales</h3>
+	<hr>
+	{{#each materiales}}	
+	<div class="row square-material">
+		<div class="col-md-12">
+			<h3 class="text-center">{{titulo}}</h3>
+		</div>
+		<div class="col-md-6">
+			<video controls>
+				{{#if readyVideos}}
+					<source src='{{video.link}}' tipe="video/mp4">
+				{{else}}
+					Cargando...
+				{{/if}}
+			</video>
+		</div>
+		<div class="col-md-6 ">
+			{{>chatPasado salaChat=chatActivo idMaterial=_id}}
+		</div>
+	</div>
+	{{>archivosPasados idMaterial=_id}}
+	{{/each}}
+</template>

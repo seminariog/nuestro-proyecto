@@ -13,10 +13,10 @@
   			</div>
   			<div class="panel-body">
   				<div class="row">
-  					<div class="col-md-5">
-  						<img src="/images/perfil.jpg" alt="">
+  					<div class="col-md-2">
+  						<img src="/images/user.jpg" alt="" class="img-circle">
   					</div>
-  					<div class="col-md-7 list-group">
+  					<div class="col-md-10 list-group">
   						<ul>
   							<li class="list-group-item text-center">
   								<strong>Datos de cuenta</strong>
@@ -40,6 +40,12 @@
                 <li class="list-group-item">
                   <strong>Correo Electronico:</strong>
                   {{datosUsuario.emails.[0].address}}
+                </li>
+                <li class="list-group-item">
+                  <form>
+                    <label for="avatar">Cambiar imagen de perfil</label>
+                    <input type="file" name="avatar">
+                  </form>
                 </li>
   						</ul>
   					</div>

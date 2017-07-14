@@ -1,19 +1,5 @@
 var tiempo = new ReactiveVar();
-Template.preguntas.events({
-	'submit #nuevaPregunta': function (e) {
-		e.preventDefault();
-		var target = e.target;
-		var pregunta = {
-			idCurso: FlowRouter.getParam('idCurso'),
-			idUsuario: Meteor.userId(),
-			texto: target.pregunta.value,
-			votos: 0,
-			discusion: false,
-			createdAt: new Date()
-		};
-		Meteor.call('insertarPregunta', pregunta);
-		target.pregunta.value = '';
-	},
+Template.discusion.events({
 	'click .btnLike': function(){
 		Meteor.call('votarPregunta', this._id);
 	},
@@ -34,7 +20,7 @@ Template.preguntas.events({
 	}
 });
 
-Template.preguntas.helpers({
+Template.discusion.helpers({
 	listaPreguntas: function(){
 		return Preguntas.find();
 	},

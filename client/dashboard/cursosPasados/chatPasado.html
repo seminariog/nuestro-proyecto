@@ -1,0 +1,22 @@
+<template name="chatPasado">
+<div class="row chat chat-title">
+	<div class="col-md-12">
+		<strong><i class="fa fa-comment"></i> Chat</strong>
+	</div>
+</div>
+<div class="row chat chat-body">
+		{{#each mensajes idMaterial}}
+			<div class="col-md-12 other-user">
+			  <p>
+			  	<strong>{{mensajeAutor.username}}</strong>
+			  	{{#if isInRole "facilitador"}}
+			  			{{#unless discusion}}
+			  				<button class="btn btn-success btn-xs pull-right btnEnviarDiscusion">Discusion {{discusion}}</button>
+			  			{{/unless}}			  
+			  	{{/if}}
+			  </p>
+			  <p class="text-nava">{{texto}}</p>
+			</div>
+		{{/each}}
+</div>
+</template>

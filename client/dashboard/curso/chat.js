@@ -25,7 +25,8 @@ Template.chat.events({
 		e.preventDefault();
 		var mensaje = {
 			idMaterial: e.target.material.value,
-			texto: e.target.texto.value
+			texto: e.target.texto.value,
+			discusion: false
 		};
 		Meteor.call('insertarMensaje', mensaje);
 		e.target.texto.value = '';

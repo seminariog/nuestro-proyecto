@@ -13,6 +13,8 @@ Template.cursosFacilitador.events({
 			descripcion: target.descripcion.value,
 			inicio: target.inicio.value,
 			idImg: upload.config.fileId,
+			activo: true,
+			createdAt: new Date(),
 		}
 		Meteor.call('crearCurso', curso, function (error, result) {});
 		target.titulo.value = '';
@@ -43,6 +45,18 @@ Template.cursosFacilitador.events({
 		    'success',
 		  )
 		});
+	},
+	'click .btnIncripcion': function(){
+		var inscripcion = {
+			idCurso: this._id,
+		}
+		Meteor.call('agregarInscripcion', inscripcion);
+		swal({
+		  title: 'Registrado',
+		  html: 'Usted se ha registrado al curso <strong>'+this.titulo+'</strong>. Ahora puede Ingresar al contenido del curso',
+		  type: 'success',
+		  confirmButtonText: 'OK'
+		});
 	}
 });
 Template.cursosFacilitador.helpers({
@@ -63,5 +77,12 @@ Template.cursosFacilitador.helpers({
   },
 	moment: function(dateTime){
 		return moment(dateTime).format('DD MMMM YYYY');
-	}
+	},
+	inscrito: function(){
+		var ins = Inscripciones.find({idCurso:this._id}).count();
+		if(ins){
+			return true;
+		}
+		return false;
+	},
 });

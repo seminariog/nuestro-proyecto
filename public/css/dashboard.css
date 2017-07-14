@@ -280,6 +280,9 @@ video{
     padding: .5em;
     color: #fff;
 }
+.discusion-box{
+    background: #575757;
+}
 .text-big-x1{
     font-size: 1.1em;
 }

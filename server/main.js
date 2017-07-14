@@ -23,7 +23,7 @@ Meteor.startup(() => {
 	/*--- Lista de cursos --*/
 	publishComposite('listaCursos', {
 		find(){
-			return Cursos.find();
+			return Cursos.find({activo:true});
 		},
 		children:[
 			{
@@ -82,7 +82,10 @@ Meteor.startup(() => {
 	publishComposite('preguntas', function(idCurso){
 		return {
 			find(){
-				return Preguntas.find({idCurso:idCurso}, {$sort:{votos:1}});
+				return Preguntas.find({$and: [
+					{idCurso:idCurso},
+					{discusion:false}
+				]}, {sort:{votos:-1}});
 			},
 			children: [
 			{
@@ -117,6 +120,61 @@ Meteor.startup(() => {
 			]
 		}
 	});
+	/*------discusion------*/
+	publishComposite('discusion', function(idCurso){
+		return {
+			find(){
+				return Preguntas.find({$and: [
+					{idCurso:idCurso},
+					{discusion:true}
+				]}, {sort:{votos:-1}});
+			},
+			children: [
+			{
+				find(pregunta){
+					return Meteor.users.find({_id:pregunta.idUsuario});
+				}
+			},
+
+			{
+				find(pregunta){
+					return VotosPreguntas.find({idPregunta:pregunta._id});
+				}
+			},
+
+			{
+				find(pregunta){
+					return Respuestas.find({idPregunta : pregunta._id});
+				},
+				children:[
+				{
+					find(respuesta, pregunta){
+						return Meteor.users.find({_id:respuesta.idUsuario});
+					}
+				},
+				{
+					find(respuesta, pregunta){
+						return VotosRespuestas.find({idRespuesta:respuesta._id});
+					}
+				}
+				]
+			}
+			]
+		}
+	});
+	/*------Cursos pasados------*/
+	publishComposite('listaCursosPasados', {
+		find(){
+			return Cursos.find({activo: false});
+		},
+		children:[
+			{
+				find(curso){
+					return Meteor.users.find({_id: curso.autor});
+				}
+			}
+		]
+	});
 
 	/*---- Methods ----*/
 	Meteor.methods({
@@ -139,6 +197,9 @@ Meteor.startup(() => {
 		'eliminarCurso': function(idCurso){
 			Cursos.remove(idCurso);
 		},
+		'finalizarCurso': function(idCurso){
+			Cursos.update(idCurso, {$set: {activo: false, fin: new Date()}});	
+		},
 		'agregarInscripcion': function(idCurso){
 			Inscripciones.insert(idCurso);
 		},
@@ -153,6 +214,9 @@ Meteor.startup(() => {
 		},
 		'insertarMensaje': function(mensaje){
 			Chat.insert(mensaje);
+		},
+		'modificarMensaje': function(idMensaje){
+			Chat.update(idMensaje, {$set: {discusion: true}});
 		},
 		'insertarArchivo': function(archivo){
 			Archivos.insert(archivo);
