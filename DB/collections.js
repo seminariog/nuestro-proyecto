@@ -142,3 +142,28 @@ var archivosSchema = new SimpleSchema({
 });
 
 Archivos.attachSchema(archivosSchema);
+
+/*--- Preguntas ---*/
+
+Preguntas = new Mongo.Collection('preguntas');
+
+var preguntasSchema = new SimpleSchema({
+	idCurso: {
+		type: String
+	},
+	texto:{
+		type: String
+	},
+	votos: {
+		type: Number
+	},
+	createdAt: {
+		type: Date,
+		autoValue: function(){
+			return new Date();
+		}
+	}
+
+});
+
+Preguntas.attachSchema(preguntasSchema);

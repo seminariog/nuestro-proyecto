@@ -51,7 +51,15 @@ Meteor.startup(() => {
 			{
 				find(material){
 					return Chat.find({idMaterial:material._id});
+				},
+				children:[
+				{
+					find(chat, material){
+						return Meteor.users.find({_id : chat.idUsuario});
+					}
 				}
+
+				]
 			},
 			
 			{
@@ -69,6 +77,16 @@ Meteor.startup(() => {
 	Meteor.publish('inscripciones', function(){
 		return Inscripciones.find();
 	});
+
+	/*------ Publish Preguntas ------*/
+	publishComposite('preguntas', function(idCurso){
+		return {
+			find(){
+				return Preguntas.find({idCurso:idCurso});
+			}
+		}
+	});
+
 	/*---- Methods ----*/
 	Meteor.methods({
 		'rolUsuario': function(idUsuario){
@@ -112,6 +130,10 @@ Meteor.startup(() => {
 			idArchivoFile = Archivos.findOne(idArchivo).idArchivo;
 			Archivos.remove(idArchivo);
 			ArchivosMaterial.remove(idArchivoFile);
+		},
+		/*------Modulo Preguntas ------*/
+		'insertarPregunta': function(pregunta){
+			Preguntas.insert(pregunta);
 		}
 	});
 });

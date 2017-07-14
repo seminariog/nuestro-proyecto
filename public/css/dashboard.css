@@ -254,7 +254,9 @@ video{
 .text-green{
     color: #81c081;
 }
-
+.text-nava{
+    color: #dfdfdf;
+}
 .i-user{
     background-color: #263238;
     color: #fff;
@@ -271,7 +273,49 @@ video{
 .i-user p, .other-user p{
     margin-bottom: 1px; 
 }
+/*** ask and answer ****/
+.ask-box{
+    background: #222222;
+    margin: 1em 0;
+    padding: .5em;
+    color: #fff;
+}
+.text-big-x1{
+    font-size: 1.1em;
+}
+.box-like{
+    margin-top: .8em;
+}
+.row .box-like:first-child{
+    border-right: 1px solid #555;
+}
+.btnLike:hover, .btnAnswer:hover{
+    color: #2196f3;
+    cursor: pointer;
+    transition: color .5s;
+}
 
+.box-like p{
+    margin: 0 auto;
+}
+
+.answer-box{
+    background: #e7e7e7;
+    margin: .2em 0;
+    padding: .5em;
+}
+
+.answer-avatar{
+    border-right: 1px solid #aaa;
+}
+.text-small{
+    font-style: italic;
+    font-size: .7em;
+}
+.btnLikeAnswer:hover{
+    color: #2196f3;
+    cursor: pointer;
+}
 /****/
 ::-webkit-scrollbar {
   width: 5px;

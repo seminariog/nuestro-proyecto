@@ -8,9 +8,12 @@ Template.chat.helpers({
 	mensajes: function(idMat){
 		return Chat.find({idMaterial:idMat});
 	},
+	mensajeAutor: function(){
+		return Meteor.users.findOne(this.idUsuario);
+	},
 	claseMensaje: function(idUs){
 		if (idUs === Meteor.userId()) {
-			return 'col-md-10 col-md-offset-2 i-user'
+			return 'col-md-10 col-md-offset-2 i-user text-right'
 		}
 		return 'col-md-10 other-user';
 

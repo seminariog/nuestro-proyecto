@@ -7,11 +7,10 @@
 <div class="row chat chat-body">
 		{{#each mensajes idMaterial}}
 			<div class="{{claseMensaje idUsuario}}">
-				<p>Usuario</p>
-				<p>{{texto}}</p>
+			  <p><strong>{{mensajeAutor.username}}</strong></p>
+			  <p class="text-nava">{{texto}}</p>
 			</div>
 		{{/each}}
-		
 </div>
 <div class="row chat">
 	<form>

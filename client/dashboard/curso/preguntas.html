@@ -1,0 +1,92 @@
+<template name="preguntas">
+<h3>Preguntas del curso</h3>
+<hr>
+<!-- Caja preguntas -->
+<div class="row">
+	<div class="col-md-12">
+		<form id="nuevaPregunta">
+			<div class="input-group">
+			  <input type="text" name="pregunta" class="form-control" placeholder="Escribe tu pregunta" aria-describedby="basic-addon1">
+			  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-question-circle"></i></span>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- Template preguntas -->
+{{#each listaPreguntas}}
+	<div class="row ask-box">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="/images/avatar.png" alt="">
+				</div>
+				<div class="col-md-9">
+					<strong>{{texto}}</strong>
+					<p class="text-right text-small"><i class="fa fa-clock-o"></i> {{moment createdAt}}</p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6 box-like">
+							<p class="text-center btnLike"><i class="fa fa-thumbs-o-up fa-4x"></i></p>
+							<p class="text-center text-big-x1"><strong>Votos {{votos}}</strong></p>
+						</div>
+						<div class="col-md-6 box-like">
+							<p class="text-center btnAnswer"><i class="fa fa-arrow-circle-right fa-4x"></i></p>
+							<p class="text-center text-big-x1"><strong>Respuestas 4</strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{{/each}}
+
+<!--
+<div>
+	<div class="row answer-box">
+		<div class="col-md-3 answer-avatar">
+			<img src="/images/avatar.png" alt="">
+		</div>
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					<strong>Autor de la respuesta</strong>
+					<p class="text-right text-small"><i class="fa fa-clock-o"></i> Hace 5min</p>
+				</div>
+				<div class="col-md-12">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates provident dolorum dicta, modi maxime in ratione ab, repellat consequuntur, dolorem ex, omnis ullam quidem officia aut quam inventore nostrum cum.</p>
+					<p class="text-right"><i class="fa fa-thumbs-o-up btnLikeAnswer"></i> 10</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row answer-box">
+		<div class="col-md-3 answer-avatar">
+			<img src="/images/avatar.png" alt="">
+		</div>
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					<strong>Autor de la respuesta</strong>
+					<p class="text-right text-small"><i class="fa fa-clock-o"></i> Hace 5min</p>
+				</div>
+				<div class="col-md-12">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates provident dolorum dicta, modi maxime in ratione ab, repellat consequuntur, dolorem ex, omnis ullam quidem officia aut quam inventore nostrum cum.</p>
+					<p class="text-right"><i class="fa fa-thumbs-o-up btnLikeAnswer"></i> 10</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form action="">
+			<textarea name="respuesta" placeholder="Escribe tu respuesta aqui..." class="form-control"></textarea>
+			<button type="submit" class="btn btn-primary btn-block">Enviar</button>
+		</form>
+	</div>
+</div>
+-->
+</template>
